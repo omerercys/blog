@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Basit Siyah Site</title>
+
+  <!-- Basit, temiz tipografi -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #000000;   /* siyah arka plan */
+      --text: #ffffff; /* beyaz yazı */
+      --muted: rgba(255,255,255,0.72);
+      --accent: rgba(255,255,255,0.06);
+      --maxWidth: 980px;
+      --pad: 40px; /* kenarlardan boşluk */
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100%;
+      background:var(--bg);
+      color:var(--text);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* Sayfa düzeni: içerik sola dayalı, üstten/solardan boşluk var */
+    .site{
+      padding: var(--pad) var(--pad) 120px var(--pad); /* üst-sağ-alt-sol */
+      max-width:var(--maxWidth);
+      margin:0; /* sola dayalı (orta değil) */
+    }
+
+    header{
+      margin-bottom:36px;
+    }
+
+    /* Başlık sol üstte, hafif kalın */
+    .site-title{
+      font-size:28px;
+      margin:0;
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+
+    .site-sub{
+      margin-top:6px;
+      color:var(--muted);
+      font-weight:400;
+      font-size:14px;
+    }
+
+    /* Ana içerik bölümleri */
+    section{
+      margin-bottom:34px;
+      padding:20px;
+      background: linear-gradient(0deg, transparent 0%, rgba(255,255,255,0.01) 100%); /* çok hafif vurgu */
+      border-radius:10px;
+    }
+
+    h2{
+      margin:0 0 12px 0;
+      font-size:18px;
+      font-weight:600;
+    }
+
+    p{
+      margin:0 0 10px 0;
+      color:var(--text);
+    }
+
+    /* Blog listesi örneği */
+    .blog-list{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .blog-item{
+      padding:12px 12px;
+      border-radius:8px;
+      margin-bottom:10px;
+      background: rgba(255,255,255,0.02);
+      transition: background .15s ease, transform .12s ease;
+    }
+
+    .blog-item:hover{
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px);
+    }
+
+    .blog-title{
+      margin:0;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .blog-meta{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    /* Responsive: dar ekranlarda padding azalt */
+    @media (max-width:560px){
+      :root{--pad:20px}
+      .site-title{font-size:22px}
+    }
+
+    /* Link stili (beyaz tonlarında) */
+    a{
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+  </style>
+</head>
+<body>
+  <main class="site" role="main" aria-labelledby="site-title">
+    <header>
+      <h1 id="site-title" class="site-title">Benim Basit Siyah Sitem</h1>
+      <div class="site-sub">Sol üstte, siyah arka plan, beyaz yazı — çok basit.</div>
+    </header>
+
+    <section aria-labelledby="home-heading">
+      <h2 id="home-heading">Anasayfa</h2>
+      <p>Hoş geldiniz — burası sitenin ana sayfası. Buraya kısa bir hoşgeldiniz yazısı ya da güncel duyuru koyabilirsiniz. Yazılar sola hizalı ve kenarlardan biraz boşluk bırakılarak gösteriliyor.</p>
+    </section>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">Hakkımızda</h2>
+      <p>Ne yaptığımızı burada açıklayabilirsiniz. Örneğin: küçük projeler geliştiriyoruz, blog yazıyoruz ve açık kaynak katkıları yapıyoruz.</p>
+    </section>
+
+    <section aria-labelledby="blog-heading">
+      <h2 id="blog-heading">Blog</h2>
+      <ul class="blog-list" aria-live="polite">
+        <li class="blog-item">
+          <div class="blog-title">İlk Yazı — 24 Ekim 2025</div>
+          <div class="blog-meta">Kısa açıklama: basit site yayınlama rehberi.</div>
+        </li>
+        <li class="blog-item">
+          <div class="blog-title">İkinci Yazı — Yakında</div>
+          <div class="blog-meta">Projelerimiz ve güncellemeler burada olacak.</div>
+        </li>
+      </ul>
+    </section>
+
+    <footer style="margin-top:40px;color:var(--muted);font-size:13px;">
+      © <span id="year"></span> — <span style="color:var(--muted)">İletişim: <a href="mailto:ornek@eposta.com">ornek@eposta.com</a></span>
+    </footer>
+  </main>
+
+  <script>
+    // footer yılı otomatik
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
